@@ -1,0 +1,8 @@
+
+# `.nojekyll`
+Crée un fichier **vide** nommé `.nojekyll` à la racine du dépôt (Add file → Create new file → nom : `.nojekyll` → Commit).
+
+---
+
+tu colles ces 4 fichiers, actives **Settings → Pages → Deploy from a branch (main / root)**, et c’est en ligne.  
+Besoin que je remplace `<votre-utilisateur>` par ton pseudo GitHub directement ?
