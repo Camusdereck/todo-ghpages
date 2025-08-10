@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Todo — Mini application</title>
+    <meta name="description" content="Application Todo simple, rapide et accessible. Ajoutez, cochez, filtrez et conservez vos tâches dans le navigateur.">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <noscript>Cette application nécessite JavaScript pour fonctionner.</noscript>
+
+    <main class="container" id="app" aria-labelledby="app-title">
+      <header class="app-header">
+        <h1 id="app-title">Ma Todo</h1>
+
+        <form id="add-form" class="add-form" autocomplete="off" aria-label="Ajouter une tâche">
+          <label class="visually-hidden" for="todo-input">Votre tâche</label>
+          <input id="todo-input" name="text" type="text" placeholder="Ex : Appeler le client, envoyer un devis..." required maxlength="120" />
+          <label class="visually-hidden" for="todo-due">Échéance (optionnelle)</label>
+          <input id="todo-due" name="due" type="date" />
+          <button type="submit" class="btn primary">Ajouter</button>
+        </form>
+
+        <div class="toolbar" role="region" aria-label="Outils de recherche et filtres">
+          <input id="search" type="search" placeholder="Rechercher..." aria-label="Rechercher une tâche" />
+          <div class="filters" role="tablist" aria-label="Filtrer">
+            <button class="chip" role="tab" aria-selected="true" data-filter="all">Toutes</button>
+            <button class="chip" role="tab" aria-selected="false" data-filter="active">Actives</button>
+            <button class="chip" role="tab" aria-selected="false" data-filter="completed">Terminées</button>
+          </div>
+          <button id="clear-completed" class="btn subtle" title="Supprimer toutes les tâches terminées">Nettoyer terminées</button>
+        </div>
+      </header>
+
+      <section aria-live="polite" aria-atomic="true">
+        <ul id="todo-list" class="todo-list" role="list"></ul>
+      </section>
+
+      <footer class="app-footer">
+        <span id="left-counter" aria-live="polite"></span>
+        <span class="hint">Astuce : double-cliquez sur le texte d'une tâche pour l'éditer.</span>
+      </footer>
+    </main>
+
+    <template id="todo-item-template">
+      <li class="todo-item" role="listitem">
+        <label class="todo">
+          <input type="checkbox" class="toggle" aria-label="Marquer comme terminée" />
+          <span class="check"></span>
+          <span class="text" tabindex="0"></span>
+        </label>
+        <div class="meta">
+          <time class="due" datetime=""></time>
+          <span class="created"></span>
+        </div>
+        <div class="actions">
+          <button class="icon-btn edit" title="Éditer">✏️</button>
+          <button class="icon-btn delete" title="Supprimer">🗑️</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
